@@ -3,6 +3,7 @@ import Papa from "papaparse";
 import Modal from "../Modal/ModalR";
 import "../UI/Mobile.css"
 import Loader from "../Loader/Loader";
+import classes from "./CaverPage.module.css"
 class CaverPage extends React.Component {
   constructor(props) {
     super(props);
@@ -14,7 +15,7 @@ class CaverPage extends React.Component {
     this.updateData = this.updateData.bind(this);
 
   }
-  
+
   handleShowDialog = (id) => {
     this.setState({ ...this.state, selected: id, show: true });
     console.log("cliked show");
@@ -38,7 +39,7 @@ class CaverPage extends React.Component {
   }
 
   updateData = (result) => {
-    console.log("RES",result.data);
+    console.log("RES", result.data);
     const data = result.data
     this.setState({ songs: data });
 
@@ -46,50 +47,53 @@ class CaverPage extends React.Component {
 
   render() {
     if (this.state.songs.length === 0) {
-      return <Loader/>
+      return <Loader />
       //  <h1>load...</h1>
-      
+
     }
     console.log(this.state.songs)
     return (
       <div className="device device-iphone-x">
-      <div className="device-frame">
-        <div className="device-content">
-      <div className="List">Data
-        {this.state.songs.map((song) => (
+        <div className="device-frame">
+          <div className="device-content">
+            <div className={classes.row}>
+              <div className={classes.column50}>
+              {this.state.songs.map((song) => (
 
-          <li key={song.id}>
-            <button className="toggle-button"  onClick={() => {
-            this.handleShowDialog(song.id);
-            // alert(song.name)
-          }}>
-            Open
-          </button>
-            {song.name} {song.audio_name1}
-            {/* <audio controls 
+                <div className={classes.media}
+
+                  key={song.id}>
+                  <button className="toggle-button" onClick={() => {
+                    this.handleShowDialog(song.id);
+                    // alert(song.name)
+                  }}>
+                    Open
+                  </button>
+                  {song.name} {song.audio_name1}
+                  {/* <audio controls 
             src={song.audio1} type="audio/mpeg" /> */}
-            {this.state.show && this.state.selected === song.id && (
-              <Modal  close ={this.state.close} show={this.state.show}
-              style={{ position: "absolute" }}
-              animation={true}>
-               <button className="toggle-button" onClick={this.handleHideDialog}>
-            close
-          </button> {song.name}
-           <audio controls 
-            src={song.audio1} type="audio/mpeg" />
-          </Modal>
+                  {this.state.show && this.state.selected === song.id && (
+                    <Modal close={this.state.close} show={this.state.show}
+                      style={{ position: "absolute" }}
+                      animation={true}>
+                      <button className="toggle-button" onClick={this.handleHideDialog}>
+                        close
+                      </button> {song.name}
+                      <audio controls
+                        src={song.audio1} type="audio/mpeg" />
+                    </Modal>
 
-            )}
+                  )}
 
-          </li>
+                </div>
 
-        )
-        )
-        }
-     
-      </div>
-      </div>
-      </div>
+              )
+              )
+              }
+</div>
+            </div>
+          </div>
+        </div>
       </div>
     )
   }
