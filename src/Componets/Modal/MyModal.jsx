@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { Modal } from 'react-responsive-modal';
-import 'react-responsive-modal/styles.css';
+
 
 class MyModal extends Component {
 
@@ -21,9 +20,9 @@ class MyModal extends Component {
         return (
             <div>
                 <button onClick={this.onClickButton}>Click Me</button>
-                <Modal open={this.state.openModal} onClose={this.onCloseModal}>
+                {/* <Modal open={this.state.openModal} onClose={this.onCloseModal}>
                     <h1>You Did it!</h1>
-                </Modal>   
+                </Modal>    */}
             </div>
         )
     }  

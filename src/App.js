@@ -1,6 +1,8 @@
 import React from "react";
 import Papa from "papaparse";
-
+import Modal from "./Componets/Modal/ModalR";
+import "./Componets/Modal/modal.css"
+import Loader from "./Componets/Loader/Loader";
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -12,13 +14,14 @@ class App extends React.Component {
     this.updateData = this.updateData.bind(this);
 
   }
+  
   handleShowDialog = (id) => {
     this.setState({ ...this.state, selected: id, show: true });
-    console.log("cliked");
+    console.log("cliked show");
   };
   handleHideDialog = () => {
     this.setState({ ...this.state, show: false });
-    console.log("closed");
+    console.log("closed hide");
   };
 
   componentDidMount() {
@@ -35,7 +38,7 @@ class App extends React.Component {
   }
 
   updateData = (result) => {
-    console.log(result.data);
+    console.log("RES",result.data);
     const data = result.data
     this.setState({ songs: data });
 
@@ -43,21 +46,43 @@ class App extends React.Component {
 
   render() {
     if (this.state.songs.length === 0) {
-      return <h1>load...</h1>
+      return <Loader/>
+      //  <h1>load...</h1>
+      
     }
     console.log(this.state.songs)
     return (
-      <div className="App">Data
+      <div className="List">Data
         {this.state.songs.map((song) => (
 
-          <li key={song.id} onClick={() => {
+          <li key={song.id}>
+            <button className="toggle-button"  onClick={() => {
             this.handleShowDialog(song.id);
-            alert(song.name)
+            // alert(song.name)
           }}>
+            Open
+          </button>
             {song.name} {song.audio_name1}
+            {/* <audio controls 
+            src={song.audio1} type="audio/mpeg" /> */}
+            {this.state.show && this.state.selected === song.id && (
+              <Modal  close ={this.state.close} show={this.state.show}
+              style={{ position: "absolute" }}
+              animation={true}>
+               <button className="toggle-button" onClick={this.handleHideDialog}>
+            close
+          </button> {song.name}
+           <audio controls 
+            src={song.audio1} type="audio/mpeg" />
+          </Modal>
+
+            )}
+
           </li>
+
         )
-        )}
+        )
+        }
       </div>
     )
   }
