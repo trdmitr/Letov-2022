@@ -1,7 +1,7 @@
 import React from "react";
 import Papa from "papaparse";
 import Modal from "../Modal/ModalR";
-import "../Modal/modal.css"
+import "../UI/Mobile.css"
 import Loader from "../Loader/Loader";
 class CaverPage extends React.Component {
   constructor(props) {
@@ -52,6 +52,9 @@ class CaverPage extends React.Component {
     }
     console.log(this.state.songs)
     return (
+      <div className="device device-iphone-x">
+      <div className="device-frame">
+        <div className="device-content">
       <div className="List">Data
         {this.state.songs.map((song) => (
 
@@ -83,6 +86,10 @@ class CaverPage extends React.Component {
         )
         )
         }
+     
+      </div>
+      </div>
+      </div>
       </div>
     )
   }
