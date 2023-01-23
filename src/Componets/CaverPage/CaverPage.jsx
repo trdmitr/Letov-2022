@@ -62,21 +62,21 @@ class CaverPage extends React.Component {
 
                 <div className={classes.media}
 
-                  key={song.id}>
-                  <button className="toggle-button" onClick={() => {
+                  key={song.id} >
+                    <img className={classes.mediaImage} src={song.photo} width={80} onClick={() => {
                     this.handleShowDialog(song.id);
                     // alert(song.name)
-                  }}>
-                    Open
-                  </button>
-                  {song.name} {song.audio_name1}
+                  }}  />
+                  <p>{song.name}</p> 
+                   
+                  
                   {/* <audio controls 
             src={song.audio1} type="audio/mpeg" /> */}
                   {this.state.show && this.state.selected === song.id && (
-                    <Modal close={this.state.close} show={this.state.show}
+                    <Modal  show={this.state.show}
                       style={{ position: "absolute" }}
                       animation={true}>
-                      <button className="toggle-button" onClick={this.handleHideDialog}>
+                      <button close={this.state.close} className="toggle-button" onClick={this.handleHideDialog}>
                         close
                       </button> {song.name}
                       <audio controls

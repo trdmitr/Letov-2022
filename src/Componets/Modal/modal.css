@@ -11,6 +11,7 @@ body {
 }
 
 .modal {
+  font-size: 1rem;
   width: 320px;
     height: 662px;
     position: absolute;
@@ -26,14 +27,7 @@ body {
   opacity: 1;
   visibility: visible;
 }
-.modal.red {
-  background: black;
-  color: red;
-}
-.modal.blue {
-  background: blue;
-  color: red;
-}
+
 .modal.off {
   opacity: 0;
   visibility: hidden;

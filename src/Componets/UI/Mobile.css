@@ -51,10 +51,10 @@
 	top: 68px;
 }
 .device-iphone-x .device-stripe::before {
-	bottom: 68px;
+	bottom: 88px;
 }
 .device-iphone-x .device-header {
-	background: #222;
+	background: rgb(211, 204, 204);
 	border-bottom-left-radius: 16px;
 	border-bottom-right-radius: 16px;
 	height: 24px;

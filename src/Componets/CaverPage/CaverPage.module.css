@@ -1,6 +1,6 @@
 .row {
-    margin-left: 1.25em;
-    margin-right: -0.75em;
+    /* margin-left: 1.25em; */
+    /* margin-right: -0.75em; */
     max-height: 40rem;
     overflow-y: scroll;
 
@@ -28,16 +28,32 @@
 }
 .media {
     float: left;
+    font-size: 0.5em;
     margin: 1.5em 1.5em 0.5em 0;
     width: calc(50% - 1.5em);
-    height: 7em;
-   padding: 1.4em;
-   background-color: #eee;
+    height: auto;
+   padding: 2.4em;
+   /* background-color: #eee; */
    border-radius: 0.5em;
    box-shadow: 0 8px 15px 0 rgba(0,0,0,0.3), 0 5px 21px 0 rgba(0,0,0,0.18);
 }
-
+.media p {
+    font-size: 1.2em;
+    background-color: #b3b3b3;
+    border-radius: 0.5em;
+    padding: 0.1em;
+}
 .media:hover{
    cursor: pointer;
    /* transform: translate(15px, -5px); */
  }
+
+ .mediaImage {
+    /* float: left; */
+    /* margin-right: 0.5em; */
+    padding-bottom: 0.5em;
+    padding-bottom: 0.5em;
+    min-height: 70px;
+  display: flex;
+  align-items: center;
+}
