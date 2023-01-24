@@ -4,6 +4,7 @@ import Modal from "../Modal/ModalR";
 import "../UI/Mobile.css"
 import Loader from "../Loader/Loader";
 import classes from "./CaverPage.module.css"
+import SinglOne from "../SinglOne/SinglOne";
 class CaverPage extends React.Component {
   constructor(props) {
     super(props);
@@ -59,28 +60,24 @@ class CaverPage extends React.Component {
             <div className={classes.row}>
               <div className={classes.column50}>
               {this.state.songs.map((song) => (
-
                 <div className={classes.media}
-
                   key={song.id} >
                     <img className={classes.mediaImage} src={song.photo} width={80} onClick={() => {
                     this.handleShowDialog(song.id);
-                    // alert(song.name)
                   }}  />
                   <p>{song.name}</p> 
-                   
-                  
-                  {/* <audio controls 
-            src={song.audio1} type="audio/mpeg" /> */}
                   {this.state.show && this.state.selected === song.id && (
                     <Modal  show={this.state.show}
                       style={{ position: "absolute" }}
                       animation={true}>
                       <button close={this.state.close} className="toggle-button" onClick={this.handleHideDialog}>
-                        close
-                      </button> {song.name}
+                        X
+                      </button>
+                      
+                       {song.name}
                       <audio controls
                         src={song.audio1} type="audio/mpeg" />
+                        {/* <SinglOne songs={this.state.songs} selId = {this.state.selected}/> */}
                     </Modal>
 
                   )}

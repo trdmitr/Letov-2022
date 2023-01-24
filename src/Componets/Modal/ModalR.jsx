@@ -1,4 +1,5 @@
 import React from "react";
+import SinglOne from "../SinglOne/SinglOne";
 import "./modal.css";
 
 export default class Modal extends React.Component {
@@ -9,10 +10,11 @@ export default class Modal extends React.Component {
         return (
             <div className="modal" id="modal">
              <div className="content">{this.props.children}
-             
+              {/* <SinglOne/> */}
              </div>
         <div className="actions">
           Привет!
+         
         </div>
             </div>
           );
