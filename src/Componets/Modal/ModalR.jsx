@@ -1,21 +1,28 @@
 import React from "react";
-import SinglOne from "../SinglOne/SinglOne";
+// import SinglOne from "../SinglOne/SinglOne";
 import "./modal.css";
+  export default class Modal extends React.Component {
+  // constructor(props) {
+  //   super(props);
+  
 
-export default class Modal extends React.Component {
-    // onClose = e => {
-    //     this.props.show = false;
-    //   };
+//   this.state = {
+//     songs: this.props.songs,
+//     selected:  this.props.children[1]
+//   }
+// }
+
+    // songs = this.props.songs
+    // selId = this.state.selected
+  
     render() {
+      const singls =    this.props.songs.filter(song => song.id ===  this.props.selId)
+      console.log("SelId", singls)
         return (
             <div className="modal" id="modal">
              <div className="content">{this.props.children}
-              {/* <SinglOne/> */}
+             <p>{singls.name}</p> 
              </div>
-        <div className="actions">
-          Привет!
-         
-        </div>
             </div>
           );
     }

@@ -4,7 +4,7 @@ import Modal from "../Modal/ModalR";
 import "../UI/Mobile.css"
 import Loader from "../Loader/Loader";
 import classes from "./CaverPage.module.css"
-import SinglOne from "../SinglOne/SinglOne";
+// import SinglOne from "../SinglOne/SinglOne";
 class CaverPage extends React.Component {
   constructor(props) {
     super(props);
@@ -12,6 +12,7 @@ class CaverPage extends React.Component {
       songs: [],
       show: false,
       close: false,
+      selected: undefined
     }
     this.updateData = this.updateData.bind(this);
 
@@ -59,35 +60,71 @@ class CaverPage extends React.Component {
           <div className="device-content">
             <div className={classes.row}>
               <div className={classes.column50}>
-              {this.state.songs.map((song) => (
-                <div className={classes.media}
-                  key={song.id} >
+                {this.state.songs.map((song) => (
+                  <div className={classes.media}
+                    key={song.id} >
                     <img className={classes.mediaImage} src={song.photo} width={80} onClick={() => {
-                    this.handleShowDialog(song.id);
-                  }}  />
-                  <p>{song.name}</p> 
-                  {this.state.show && this.state.selected === song.id && (
-                    <Modal  show={this.state.show}
-                      style={{ position: "absolute" }}
-                      animation={true}>
-                      <button close={this.state.close} className="toggle-button" onClick={this.handleHideDialog}>
-                        X
-                      </button>
-                      
-                       {song.name}
-                      <audio controls
-                        src={song.audio1} type="audio/mpeg" />
-                        {/* <SinglOne songs={this.state.songs} selId = {this.state.selected}/> */}
-                    </Modal>
+                      this.handleShowDialog(song.id);
+                    }} />
+                    <p>{song.name}</p>
+                    {this.state.show && this.state.selected === song.id && (
+                      <Modal show={this.state.show}
+                        songs={this.state.songs} selId={this.state.selected}
+                        style={{ position: "absolute" }}
+                        animation={true}>
+                        <button close={this.state.close} className="toggle-button" onClick={this.handleHideDialog}>
+                          X
+                        </button>
+                        <div className={classes.mediaSong} key={song.id}>
+                          <img className={classes.mediaImage_modal} src={song.photo} width={80} alt={song.name} />
+                          <div className={classes.headerSong}>
+                            <p>{song.name}</p></div>
+                          <a className={[classes.linkTo, song.linkTo ? '' : classes.mediaHidden].join(' ')} href={song.linkTo} target="_blank" rel="noopener noreferrer"> Канал исполнителя </a>
+                          <div className={[
+                            classes.audioBlock,
+                            song.audio1 ? '' : classes.mediaHidden].join(' ')
+                          }>
+                            <p>{song.audio_name1}</p>
+                            <audio controls className={song.audio1 ? '' : classes.mediaHidden}
+                              src={song.audio1} type="audio/mpeg" />
+                            <p>{song.audio_name2}</p>
+                            <audio controls className={song.audio2 ? '' : classes.mediaHidden}
+                              src={song.audio2} type="audio/mpeg" />
+                            <p>{song.audio_name3}</p>
+                            <audio controls className={song.audio3 ? '' : classes.mediaHidden}
+                              src={song.audio3} type="audio/mpeg" />
+                          </div>
 
-                  )}
+                          <div className={[
+                            classes.videoBlock,
+                            song.video1 ? '' : classes.mediaHidden].join(' ')
+                          }>
+                            <p>{song.video_name1}</p>
+                            <video className={song.video1 ? '' : classes.mediaHidden} src={song.video1} id={classes.videoFrame} controls={true} type="video/mp4" ></video>
+                            <p>{song.video_name2}</p>
 
-                </div>
+                            <video className={song.video2 ? '' : classes.mediaHidden} src={song.video2} id={classes.videoFrame} controls={true} type="video/mp4" ></video>
+                            <p>{song.video_name3}</p>
 
-              )
-              )
-              }
-</div>
+                            <video className={song.video3 ? '' : classes.mediaHidden} src={song.video3} id={classes.videoFrame} controls={true} type="video/mp4" ></video>
+                          </div>
+                          <div className={classes.tziTata}>
+                            {/* <img className={classes.tziImage} src={song.picture_tzitata} width={80} alt="Цитаты" /> */}
+                            <p>{song.picture}</p>
+                          </div>
+                        </div>
+
+
+                      </Modal>
+
+                    )}
+
+                  </div>
+
+                )
+                )
+                }
+              </div>
             </div>
           </div>
         </div>

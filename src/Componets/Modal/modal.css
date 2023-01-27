@@ -12,7 +12,7 @@ body {
 
 .modal {
   font-size: 1rem;
-  width: 320px;
+  width: 340px;
     height: 662px;
     position: absolute;
     top: 33%;
@@ -49,11 +49,11 @@ body {
     offset-path: none;
   }
 }
-.modal h2 {
+/* .modal h2 {
   border-bottom: 1px solid #ccc;
   padding: 1rem;
   margin: 0;
-}
+} */
 .modal .content {
   padding: 1rem;
 }

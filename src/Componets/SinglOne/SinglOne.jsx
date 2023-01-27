@@ -1,15 +1,21 @@
 import React from 'react'
 
-class SinglOne extends React.Component {
-    render() {
-        // this.props.selId
 
-     const singls =    this.props.songs.filter(songs => songs.id === this.props.selId)
-console.log("Sinfle One", singls
-      );
+
+class SinglOne extends React.Component {
+  
+
+  componentDidMount() {
+    
+    // console.log("Sinfle One", singls);
+    
+  }
+    render() {
+      const singls =    this.props.songs.filter(song => song.name === this.props.selId)
       return (
         singls.map((singl) => {
             <div>
+              <img src= {singl.photo}/>
                  <p>{singl.name}!</p>
             </div>
             
