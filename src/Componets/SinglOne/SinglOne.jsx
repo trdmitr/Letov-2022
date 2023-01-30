@@ -13,15 +13,15 @@ class SinglOne extends React.Component {
     render() {
       const singls =    this.props.songs.filter(song => song.name === this.props.selId)
       return (
-        singls.map((singl) => {
+        singls.map((singl) => (  
             <div>
               <img src= {singl.photo}/>
                  <p>{singl.name}!</p>
             </div>
             
-            console.log("MAP", singl.name
-      )
-        }
+      //       console.log("MAP", singl.name
+      // )
+        )
         )
       )
     }
