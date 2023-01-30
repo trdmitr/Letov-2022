@@ -151,7 +151,7 @@
     /* padding: 2px 6px; */
     /* padding: 0 1em 0 1em; */
     /* margin: 5em; */
-    background-color: var(--tributeAfterBefore);
+    /* background-color: var(--tributeAfterBefore); */
     border-radius: 0.5em;
     /* text-shadow: var(--textShadow); */
     /* box-shadow: var(--boxShadow); */
@@ -162,7 +162,7 @@
     font-size: 1.5rem;
     text-align: center;
     color: var(--colorText);
-    background-color: var(--tributeAfterBefore);
+    /* background-color: var(--tributeAfterBefore); */
     border-radius: 0.5em;
     text-shadow: var(--textShadow);
     box-shadow: var(--boxShadow);
