@@ -12,6 +12,7 @@ class HomePage extends Component {
         <div>
         <Link to={"/cavers"} className="nav-link">Cavers</Link>
         This is my HomePage.
+        
       </div>
         </div>
       </div>

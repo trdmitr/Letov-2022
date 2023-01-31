@@ -4,15 +4,18 @@ import Modal from "../Modal/ModalR";
 import "../UI/Mobile.css"
 import Loader from "../Loader/Loader";
 import classes from "./CaverPage.module.css"
+import { Link } from "react-router-dom";
+import Img from "../UI/Img";
 // import SinglOne from "../SinglOne/SinglOne";
 class CaverPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      songs: [],
+      songs: [0],
       show: false,
-      close: false,
-      selected: undefined
+      // close: false,
+      selected: undefined,
+      songsEror: ""
     }
     this.updateData = this.updateData.bind(this);
 
@@ -20,11 +23,11 @@ class CaverPage extends React.Component {
 
   handleShowDialog = (id) => {
     this.setState({ ...this.state, selected: id, show: true });
-    console.log("cliked show");
+    // console.log("cliked show");
   };
   handleHideDialog = () => {
     this.setState({ ...this.state, show: false });
-    console.log("closed hide");
+    // console.log("closed hide");
   };
 
   componentDidMount() {
@@ -35,37 +38,58 @@ class CaverPage extends React.Component {
         worker: true,
         skipEmptyLines: true,
 
-        complete: this.updateData
+        complete: this.updateData,
+        error: (error) => {
+          console.error(error);
+        this.setState(error)
       }
+      }
+      
     );
   }
 
   updateData = (result) => {
-    console.log("RES", result.data);
+    
     const data = result.data
+    // if (data.length === 0) {
+    //   return <Loader />
+    //  }
+     console.log("RES", result.data);
     this.setState({ songs: data });
 
   }
 
   render() {
-    if (this.state.songs.length === 0) {
-      return <Loader />
-      //  <h1>load...</h1>
+    // if (this.state.songs.length === 0) {
+    //   return <Loader />
+    //   //  <h1>load...</h1>
 
-    }
+    // }
     console.log(this.state.songs)
     return (
-      <div className="device device-iphone-x">
+      <div className="device device-iphone-x">   
         <div className="device-frame">
           <div className="device-content">
             <div className={classes.row}>
+              <Link to="/">
+                <button className={classes.btnHome}>🎪</button>
+              </Link>
+
               <div className={classes.column50}>
-                {this.state.songs.map((song) => (
+               {this.state.songs.length === 0?  <Loader /> :this.state.songs.map((song) => (
                   <div className={classes.media}
                     key={song.id} >
-                    <img className={classes.mediaImage} src={song.photo} width={80} onClick={() => {
+                    {/* <img className={classes.mediaImage} src={song.photo} width={80} onClick={() => {
                       this.handleShowDialog(song.id);
-                    }} />
+                    }} /> */}
+                     {/* <Img className={classes.mediaImage} imgUrl={song.photo} width={80} imgAlt={song.name} onClick={() => {
+                      this.handleShowDialog(song.id);
+                    }}/>             */}
+                    <div className={classes.mediaImage_modal} onClick={() => {
+                      this.handleShowDialog(song.id);
+                    }}>
+                            <Img imgUrl={song.photo} width={80} imgAlt={song.name}  />
+                          </div>
                     <p>{song.name}</p>
                     {this.state.show && this.state.selected === song.id && (
                       <Modal show={this.state.show}
@@ -76,7 +100,13 @@ class CaverPage extends React.Component {
                           X
                         </button>
                         <div className={classes.mediaSong} key={song.id}>
+                          {/* <div className={classes.mediaImage_modal} >
+                            <Img imgUrl={song.photo} width={80} imgAlt={song.name} onClick={() => {
+                      this.handleShowDialog(song.id);
+                    }} />
+                          </div> */}
                           <img className={classes.mediaImage_modal} src={song.photo} width={80} alt={song.name} />
+                          
                           <div className={classes.headerSong}>
                             <p>{song.name}</p></div>
                           <a className={[classes.linkTo, song.linkTo ? '' : classes.mediaHidden].join(' ')} href={song.linkTo} target="_blank" rel="noopener noreferrer"> Канал исполнителя </a>
@@ -113,8 +143,6 @@ class CaverPage extends React.Component {
                             <p>{song.picture}</p>
                           </div>
                         </div>
-
-
                       </Modal>
 
                     )}
@@ -128,6 +156,12 @@ class CaverPage extends React.Component {
             </div>
           </div>
         </div>
+        <div className="device-stripe"></div>
+        <div className="device-header">
+          <div className="device-sensors"></div>
+        </div>
+        <div className="device-btns"></div>
+        <div className="device-power"></div>
       </div>
     )
   }

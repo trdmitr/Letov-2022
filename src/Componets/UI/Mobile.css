@@ -36,6 +36,9 @@
 	position: relative;
 	width: 300px;
 }
+.device-content span {
+	color: #222;
+}
 .device-iphone-x .device-stripe::after,
 .device-iphone-x .device-stripe::before {
 	border: solid rgba(51, 51, 51, .25);
