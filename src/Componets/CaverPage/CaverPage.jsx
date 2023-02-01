@@ -54,18 +54,14 @@ class CaverPage extends React.Component {
     // if (data.length === 0) {
     //   return <Loader />
     //  }
-     console.log("RES", result.data);
+    //  console.log("RES", result.data);
     this.setState({ songs: data });
 
   }
-
+ 
   render() {
-    // if (this.state.songs.length === 0) {
-    //   return <Loader />
-    //   //  <h1>load...</h1>
-
-    // }
-    console.log(this.state.songs)
+   
+    // console.log(this.state.songs)
     return (
       <div className="device device-iphone-x">   
         <div className="device-frame">
@@ -76,15 +72,13 @@ class CaverPage extends React.Component {
               </Link>
 
               <div className={classes.column50}>
-               {this.state.songs.length === 0?  <Loader /> :this.state.songs.map((song) => (
+               {this.state.songs?.map((song) => (
                   <div className={classes.media}
                     key={song.id} >
                     {/* <img className={classes.mediaImage} src={song.photo} width={80} onClick={() => {
                       this.handleShowDialog(song.id);
                     }} /> */}
-                     {/* <Img className={classes.mediaImage} imgUrl={song.photo} width={80} imgAlt={song.name} onClick={() => {
-                      this.handleShowDialog(song.id);
-                    }}/>             */}
+                    
                     <div className={classes.mediaImage_modal} onClick={() => {
                       this.handleShowDialog(song.id);
                     }}>
@@ -100,11 +94,6 @@ class CaverPage extends React.Component {
                           X
                         </button>
                         <div className={classes.mediaSong} key={song.id}>
-                          {/* <div className={classes.mediaImage_modal} >
-                            <Img imgUrl={song.photo} width={80} imgAlt={song.name} onClick={() => {
-                      this.handleShowDialog(song.id);
-                    }} />
-                          </div> */}
                           <img className={classes.mediaImage_modal} src={song.photo} width={80} alt={song.name} />
                           
                           <div className={classes.headerSong}>

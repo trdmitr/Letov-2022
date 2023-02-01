@@ -41,7 +41,11 @@
     text-align: center;
     font-size: 1.2em;
     background-color: #b3b3b3;
-    border-radius: 0.5em;
+    /* border-radius: 0.5em; */
+    border-top-left-radius: 0em;
+    border-top-right-radius: 0em;
+    border-bottom-right-radius: 0.5em;
+    border-bottom-left-radius: 0.5em;
     margin: 0%;
     /* padding: 0 1em 0 1em; */
 }
@@ -101,10 +105,15 @@
   }
   
   .mediaImage_modal >img {
-    display: block;
+    /* display: block;
     width: 100%;
     height: 87px;
+    object-fit: cover; */
+    display: block;
+    width: 121%;
+    height: 108px;
     object-fit: cover;
+    border-radius: 50%;
   }
   
   .headerSong {

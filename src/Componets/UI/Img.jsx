@@ -9,21 +9,20 @@ export default class Img extends React.Component{
 	
      url: null
 	};
-    // this.updateData = this.updateData.bind(this);
+    
   }
   imgUrl = this.props.imgUrl
   imgAlt = this.props.imgAlt
  componentDidMount() {
-    console.log (this.imgUrl)
+    // console.log (this.imgUrl)
     fetch(this.imgUrl)
       .then(response => response.blob())
       .then((image) => {
         this.setState({url: URL.createObjectURL(image)});
-        console.log (this.state.url)
+        // console.log (this.state.url)
       });
     }
     
-  
     render() {
         if (!this.state.url){
     return <Loader/>;
