@@ -16,12 +16,12 @@ import "./modal.css";
     // selId = this.state.selected
   
     render() {
-      const singls =    this.props.songs.filter(song => song.id ===  this.props.selId)
+      // const singls =    this.props.songs.filter(song => song.id ===  this.props.selId)
       // console.log("SelId", singls)
         return (
             <div className="modal" id="modal">
              <div className="content">{this.props.children}
-             <p>{singls.name}</p> 
+             {/* <p>{singls.name}</p>  */}
              </div>
             </div>
           );

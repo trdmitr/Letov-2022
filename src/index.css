@@ -1,8 +1,6 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'JakobCTT';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -15,7 +13,7 @@ code {
 :root {
   --colorBackgroundAll: #bbbbbbb3;
   --colorHeader: #3B643B;
-  --colorText: rgb(20, 5, 5);
+  --colorText: rgb(247, 235, 235);
   --tributeAfterBefore: #bbbbbbb3;
   --titleSongColor: #e7edee;
   

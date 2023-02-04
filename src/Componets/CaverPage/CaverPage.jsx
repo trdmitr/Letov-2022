@@ -68,7 +68,7 @@ class CaverPage extends React.Component {
           <div className="device-content">
             <div className={classes.row}>
               <Link to="/">
-                <button className={classes.btnHome}>🎪</button>
+                <button className={classes.btnHome}>🏛</button>
               </Link>
 
               <div className={classes.column50}>
@@ -84,7 +84,7 @@ class CaverPage extends React.Component {
                     }}>
                             <Img imgUrl={song.photo} width={80} imgAlt={song.name}  />
                           </div>
-                    <p>{song.name}</p>
+                    <span>{song.name}</span>
                     {this.state.show && this.state.selected === song.id && (
                       <Modal show={this.state.show}
                         songs={this.state.songs} selId={this.state.selected}
@@ -95,7 +95,11 @@ class CaverPage extends React.Component {
                         </button>
                         <div className={classes.mediaSong} key={song.id}>
                           <img className={classes.mediaImage_modal} src={song.photo} width={80} alt={song.name} />
-                          
+                          {/* <div className={classes.mediaImage_modal}
+                          >
+                             <Img imgUrl={song.photo}   imgAlt={song.name}  />
+                          </div>
+                           */}
                           <div className={classes.headerSong}>
                             <p>{song.name}</p></div>
                           <a className={[classes.linkTo, song.linkTo ? '' : classes.mediaHidden].join(' ')} href={song.linkTo} target="_blank" rel="noopener noreferrer"> Канал исполнителя </a>
@@ -112,25 +116,34 @@ class CaverPage extends React.Component {
                             <p>{song.audio_name3}</p>
                             <audio controls className={song.audio3 ? '' : classes.mediaHidden}
                               src={song.audio3} type="audio/mpeg" />
-                          </div>
+                         </div>
 
                           <div className={[
-                            classes.videoBlock,
-                            song.video1 ? '' : classes.mediaHidden].join(' ')
-                          }>
-                            <p>{song.video_name1}</p>
-                            <video className={song.video1 ? '' : classes.mediaHidden} src={song.video1} id={classes.videoFrame} controls={true} type="video/mp4" ></video>
-                            <p>{song.video_name2}</p>
+                           classes.videoBlock,
+                           song.video1 ? '' : classes.mediaHidden].join(' ')
+                         }>
+                           <p>{song.video_name1}</p>
+                           <video src={song.video1} id={classes.videoFrame} controls={true} type="video/mp4" ></video>                        
+                         </div>					 
+						  <p>{song.video_name2}</p>					 
+                         <div className={[
+                           classes.videoBlock,
+                           song.video2 ? '' : classes.mediaHidden].join(' ')
+                         }>
+                           <video src={song.video2} id={classes.videoFrame} controls={true} type="video/mp4" ></video>
+						   
+                           <p>{song.video_name3}</p>
+                           <div className={[
+                           classes.videoBlock,
+                           song.video3 ? '' : classes.mediaHidden].join(' ')
+                         }>
+                           <video src={song.video3} id={classes.videoFrame} controls={true} type="video/mp4" ></video>
+                            </div>
+                         </div>   
 
-                            <video className={song.video2 ? '' : classes.mediaHidden} src={song.video2} id={classes.videoFrame} controls={true} type="video/mp4" ></video>
-                            <p>{song.video_name3}</p>
-
-                            <video className={song.video3 ? '' : classes.mediaHidden} src={song.video3} id={classes.videoFrame} controls={true} type="video/mp4" ></video>
-                          </div>
-                          <div className={classes.tziTata}>
-                            {/* <img className={classes.tziImage} src={song.picture_tzitata} width={80} alt="Цитаты" /> */}
-                            <p>{song.picture}</p>
-                          </div>
+                         <div className={classes.tziTata}>
+                           <img className={classes.tziImage} src={song.picture} width={80} alt="Цитаты" />
+                         </div>
                         </div>
                       </Modal>
 

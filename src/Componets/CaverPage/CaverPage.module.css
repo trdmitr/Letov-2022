@@ -38,8 +38,22 @@
    box-shadow: 0 8px 15px 0 rgba(0,0,0,0.3), 0 5px 21px 0 rgba(0,0,0,0.18);
 }
 .media p {
+  font-family: 'JakobCTT';
     text-align: center;
-    font-size: 1.2em;
+    font-size: 1.5em;
+    /* background-color: #b3b3b3; */
+    /* border-radius: 0.5em; */
+    border-top-left-radius: 0em;
+    border-top-right-radius: 0em;
+    border-bottom-right-radius: 0.5em;
+    border-bottom-left-radius: 0.5em;
+    margin: 0%;
+    /* padding: 0 1em 0 1em; */
+}
+.media span {
+  font-family: 'JakobCTT';
+    text-align: center;
+    font-size: 1.7em;
     background-color: #b3b3b3;
     /* border-radius: 0.5em; */
     border-top-left-radius: 0em;
@@ -47,6 +61,7 @@
     border-bottom-right-radius: 0.5em;
     border-bottom-left-radius: 0.5em;
     margin: 0%;
+    color: #b16530;
     /* padding: 0 1em 0 1em; */
 }
 .media:hover{
@@ -122,10 +137,10 @@
     font-size: 1rem;
     /* padding: 0.2rem 1.3rem; */
     color: var(--titleSongColor);
-    background-color: var(--colorBackgroundAll);
+    /* background-color: var(--colorBackgroundAll); */
     border-radius: 0.5rem;
     /* border: 2px solid var(--titleSongColor); */
-    border-bottom: 4px solid #b2b1b1;
+    /* border-bottom: 4px solid #b2b1b1; */
     /* text-shadow: -1px -1.6px 0px #151616; */
     /* box-shadow: var(--boxShadow); */
     cursor: pointer;
@@ -175,14 +190,14 @@
     /* background-color: var(--tributeAfterBefore); */
     border-radius: 0.5em;
     text-shadow: var(--textShadow);
-    box-shadow: var(--boxShadow);
+    /* box-shadow: var(--boxShadow); */
   }
   
   .videoBlock {
     position: relative;
   
     width: 100%;
-    height: 255px;
+    /* height: 255px; */
   
   }
   
@@ -197,7 +212,7 @@
   
   audio::-webkit-media-controls-enclosure {
   
-    background-color: #705e5e;
+    background-color: #e6d6b4;
     text-shadow: -1px -1.6px 0px #b7a4cc;
     box-shadow: var(--boxShadow);
   
@@ -228,8 +243,9 @@
   .btnHome {
     background-color: #bf6947;
     position: absolute;
-    top: 0%;
-    left: 9%;
-    background-color: #bf6947;
-    border-radius: 1%;
+    top: 89%;
+    left: 15%;
+    background-color: #bf6947ba;
+    border-radius: 25%;
+    padding: 1.5em;
   }
