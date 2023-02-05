@@ -41,6 +41,7 @@
   font-family: 'JakobCTT';
     text-align: center;
     font-size: 1.5em;
+    color: var(--colorText);
     /* background-color: #b3b3b3; */
     /* border-radius: 0.5em; */
     border-top-left-radius: 0em;
@@ -61,7 +62,7 @@
     border-bottom-right-radius: 0.5em;
     border-bottom-left-radius: 0.5em;
     margin: 0%;
-    color: #b16530;
+    color: #eff1e2;
     /* padding: 0 1em 0 1em; */
 }
 .media:hover{
