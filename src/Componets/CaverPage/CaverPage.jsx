@@ -2,7 +2,7 @@ import React from "react";
 import Papa from "papaparse";
 import Modal from "../Modal/ModalR";
 import "../UI/Mobile.css"
-import Loader from "../Loader/Loader";
+// import Loader from "../Loader/Loader";
 import classes from "./CaverPage.module.css"
 import { Link } from "react-router-dom";
 import Img from "../UI/Img";
@@ -58,7 +58,7 @@ class CaverPage extends React.Component {
 
   render() {
     const playList = this.state.songs.length <= 1 ? null : (
-      <AudioList songs={this.state.songs}>{console.log("aAud", this.state.songs)}</AudioList>
+      <AudioList songs={this.state.songs}></AudioList>
     );
 
 

@@ -11,15 +11,13 @@ export default class Img extends React.Component{
 	};
     
   }
-  imgUrl = this.props.imgUrl
-  imgAlt = this.props.imgAlt
  componentDidMount() {
-    // console.log (this.imgUrl)
-    fetch(this.imgUrl)
+    
+    fetch(this.props.imgUrl)
       .then(response => response.blob())
       .then((image) => {
         this.setState({url: URL.createObjectURL(image)});
-        // console.log (this.state.url)
+      
       });
     }
     
@@ -27,14 +25,14 @@ export default class Img extends React.Component{
         if (!this.state.url){
     return <Loader/>;
   }
-const divStyle = { 
+// const divStyle = { 
     
-    paddingBottom: "0.5em",
-    minHeight: "70px",
-    display: "flex",
-    alignItems: "center"
-}
-	return <img src = {this.state.url} alt={this.state.imgAlt}/>;
+//     paddingBottom: "0.5em",
+//     minHeight: "70px",
+//     display: "flex",
+//     alignItems: "center"
+// }
+	return <img src = {this.state.url} alt={this.props.imgAlt}/>;
 	}   
   
 }
