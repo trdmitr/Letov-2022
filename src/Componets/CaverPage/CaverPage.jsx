@@ -6,8 +6,8 @@ import Loader from "../Loader/Loader";
 import classes from "./CaverPage.module.css"
 import { Link } from "react-router-dom";
 import Img from "../UI/Img";
-import AudioPlayer from "../Player/AudioPlayer"
-// import SinglOne from "../SinglOne/SinglOne";
+import AudioList from "../Player/PlayList"
+
 class CaverPage extends React.Component {
   constructor(props) {
     super(props);
@@ -42,43 +42,43 @@ class CaverPage extends React.Component {
         complete: this.updateData,
         error: (error) => {
           console.error(error);
-        this.setState(error)
+          this.setState(error)
+        }
       }
-      }
-      
+
     );
   }
 
   updateData = (result) => {
-    
+
     const data = result.data
     this.setState({ songs: data });
 
   }
- 
+
   render() {
-   const playList = this.state.songs.length <=  1 ? null : (
-                  <AudioPlayer songs={this.state.songs}>{console.log("aAud",this.state.songs)}</AudioPlayer>   
-                );
-                
-    
+    const playList = this.state.songs.length <= 1 ? null : (
+      <AudioList songs={this.state.songs}>{console.log("aAud", this.state.songs)}</AudioList>
+    );
+
+
     return (
-      <div className="device device-iphone-x">   
+      <div className="device device-iphone-x">
         <div className="device-frame">
           <div className="device-content">
             <div className={classes.row}>
-              
-              
+
+
               <div className={classes.column50}>
-             
-               {this.state.songs?.map((song) => (
+
+                {this.state.songs?.map((song) => (
                   <div className={classes.media}
                     key={song.id} >
                     <div className={classes.mediaImage_modal} onClick={() => {
                       this.handleShowDialog(song.id);
                     }}>
-                            <Img imgUrl={song.photo} width={80} imgAlt={song.name}  />
-                          </div>
+                      <Img imgUrl={song.photo} width={80} imgAlt={song.name} />
+                    </div>
                     <span>{song.name}</span>
                     {this.state.show && this.state.selected === song.id && (
                       <Modal show={this.state.show}
@@ -106,49 +106,49 @@ class CaverPage extends React.Component {
                             <p>{song.audio_name3}</p>
                             <audio controls className={song.audio3 ? '' : classes.mediaHidden}
                               src={song.audio3} type="audio/mpeg" />
-                         </div>
+                          </div>
 
                           <div className={[
-                           classes.videoBlock,
-                           song.video1 ? '' : classes.mediaHidden].join(' ')
-                         }>
-                           <p>{song.video_name1}</p>
-                           <video src={song.video1} id={classes.videoFrame} controls={true} type="video/mp4" ></video>                        
-                         </div>					 
-						              <p>{song.video_name2}</p>					 
-                         <div className={[
-                           classes.videoBlock,
-                           song.video2 ? '' : classes.mediaHidden].join(' ')
-                         }>
-                           <video src={song.video2} id={classes.videoFrame} controls={true} type="video/mp4" ></video>
-						   
-                           <p>{song.video_name3}</p>
-                           <div className={[
-                           classes.videoBlock,
-                           song.video3 ? '' : classes.mediaHidden].join(' ')
-                         }>
-                           <video src={song.video3} id={classes.videoFrame} controls={true} type="video/mp4" ></video>
-                            </div>
-                         </div>   
+                            classes.videoBlock,
+                            song.video1 ? '' : classes.mediaHidden].join(' ')
+                          }>
+                            <p>{song.video_name1}</p>
+                            <video src={song.video1} id={classes.videoFrame} controls={true} type="video/mp4" ></video>
+                          </div>
+                          <p>{song.video_name2}</p>
+                          <div className={[
+                            classes.videoBlock,
+                            song.video2 ? '' : classes.mediaHidden].join(' ')
+                          }>
+                            <video src={song.video2} id={classes.videoFrame} controls={true} type="video/mp4" ></video>
 
-                         <div className={classes.tziTata}>
-                           <img className={classes.tziImage} src={song.picture} width={80} alt="Цитаты" />
-                         </div>
+                            <p>{song.video_name3}</p>
+                            <div className={[
+                              classes.videoBlock,
+                              song.video3 ? '' : classes.mediaHidden].join(' ')
+                            }>
+                              <video src={song.video3} id={classes.videoFrame} controls={true} type="video/mp4" ></video>
+                            </div>
+                          </div>
+
+                          <div className={classes.tziTata}>
+                            <img className={classes.tziImage} src={song.picture} width={80} alt="Цитаты" />
+                          </div>
                         </div>
                       </Modal>
- 
+
                     )}
-                    
+
                   </div>
                 )
                 )
-                } 
-               <div>
-               {playList}
-                 <Link to="/">
-                <button className={classes.btnHome}>🏛</button>
+                }
+                <div>
+                  {playList}
+                  <Link to="/">
+                <button className={classes.btnHome}>Home</button>
               </Link>
-               </div>     
+                </div>
               </div>
             </div>
           </div>

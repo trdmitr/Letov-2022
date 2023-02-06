@@ -15,11 +15,11 @@ class HomePage extends Component {
         <div className="device-content">
 
         <div>
-        <Link to={"/cavers"} className="nav-link">Cavers</Link>
+        <Link to={"/cavers"} className={classes.navLink}>Слушаем!</Link>
         
         <div className= {classes.main}>
   <div className= {classes.article}><p >Вот и всё что было...</p></div>
-  <div className= {classes.article}><img src={imgUrl} width={100} alt="Каверы Подземки" /></div>
+  <div className= {classes.article}><img src={imgUrl} width={100} alt={imgAlt} /></div>
   <div className= {classes.article}><audio controls src={frontAudio} type="audio/mpeg" /></div>
   
   <div className= {classes.article}><img  style={{ borderRadius: "0rem 0rem 2rem 2rem"}} src={imgTzi} width={100} alt="Каверы Подземки" /> </div>

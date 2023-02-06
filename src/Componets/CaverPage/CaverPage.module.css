@@ -242,11 +242,12 @@
     
   }
   .btnHome {
-    background-color: #bf6947;
+    /* background-color: #bf6947; */
     position: absolute;
-    top: 89%;
-    left: 15%;
-    background-color: #bf6947ba;
-    border-radius: 25%;
-    padding: 1.5em;
+    top: 1%;
+    left: 78%;
+    /* background-color: #bf6947ba; */
+    border-radius: 6%;
+    padding: 0.2em;
+    opacity: 50%;
   }

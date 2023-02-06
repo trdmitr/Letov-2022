@@ -161,5 +161,17 @@
     /* box-shadow: var(--boxShadow); */
 	padding: 0.2rem;
     margin-top: 1em;
-    margin-bottom: -0.5em;
+    margin-bottom: 0.5em;
+  }
+  .navLink {
+	position: absolute;
+	padding: 0.1em 2em 0 2em;
+	/* margin-right: 1em; */
+	box-sizing: border-box;
+	top: 11%;
+    left: 29%;
+	border: 1px solid rgb(3 47 83);;
+	border-radius: 1em;
+	text-decoration: none;
+	color: rgb(3 47 83);
   }
