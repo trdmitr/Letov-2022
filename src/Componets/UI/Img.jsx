@@ -22,7 +22,7 @@ export default class Img extends React.Component{
     }
     
     render() {
-        if (!this.props.imgUrl){
+        if (!this.state.url){
     return <Loader/>;
   }
 // const divStyle = { 

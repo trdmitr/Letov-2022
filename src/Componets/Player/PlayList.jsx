@@ -3,6 +3,7 @@ import { useState} from "react";
 import classes from './PlayList.module.css'
 import AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
+import Loader from '../Loader/Loader';
 
 const Player = ({songs, songError}) => {
     const [trackIndex, setTrackIndex] = useState(0)
@@ -76,7 +77,7 @@ const Player = ({songs, songError}) => {
 }, [songs])
 
   if (audioList.length === 0) {
-        return null
+        return <Loader/>
       }
       if (songError) 
 return <h1 >Ошибка загрузки!{songError}</h1>
