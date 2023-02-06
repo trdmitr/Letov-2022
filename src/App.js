@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import CaverPage from "./Componets/CaverPage/CaverPage";
-// import { Routes, Route } from 'react-router-dom';
+// import { Routes, Route, HashRouter } from 'react-router-dom';
 import HomePage from './Componets/HomePage/HomePage';
 // import { BrowserRouter } from 'react-router-dom'
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
 function Notfound () {
   
