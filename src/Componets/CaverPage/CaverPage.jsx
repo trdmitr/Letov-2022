@@ -71,7 +71,7 @@ class CaverPage extends React.Component {
 
               <div className={classes.column50}>
 
-                {this.state.songs?.map((song) => (
+                {this.state.songs?.map((song, id) => (
                   <div className={classes.media}
                     key={song.id} >
                     <div className={classes.mediaImage_modal} onClick={() => {
