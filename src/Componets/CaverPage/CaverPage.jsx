@@ -1,5 +1,6 @@
 import React from "react";
 import Papa from "papaparse";
+import ReactPlayer from "react-player";
 import Modal from "../Modal/ModalR";
 import "../UI/Mobile.css"
 // import Loader from "../Loader/Loader";
@@ -57,20 +58,33 @@ class CaverPage extends React.Component {
   }
 
   render() {
+    const audioSorce = (x, y) => {
+      return (
+        <div>
+          <p>{y}</p>
+          <audio controls className={x ? '' : classes.mediaHidden}
+            src={x} type="audio/mpeg" />
+        </div>
+      )
+    }
+    // const videoSorce = x => x.includes('youtu.be') ? <ReactPlayer className={x ? '' : classes.mediaHidden} id={classes.videoFrame} url={x} controls={true} /> 
+    // :  <video src={x} id={classes.videoFrame} controls={true} type="video/mp4" ></video>;
+    const videoSorce = (x, y) => 
+    <div>
+    <p>{y}</p>
+    {x.includes('youtu.be') ? <ReactPlayer className={x ? '' : classes.mediaHidden} id={classes.videoFrame} url={x} controls={true} /> 
+    :  <video className={[classes.videoBlock, x ? '' : classes.mediaHidden].join(' ')} src={x} controls={true} type="video/mp4" ></video>}
+    </div>
+
     const playList = this.state.songs.length <= 1 ? null : (
       <AudioList songs={this.state.songs}></AudioList>
     );
-
-
     return (
       <div className="device device-iphone-x">
         <div className="device-frame">
           <div className="device-content">
             <div className={classes.row}>
-
-
               <div className={classes.column50}>
-
                 {this.state.songs?.map((song, id) => (
                   <div className={classes.media}
                     key={song.id} >
@@ -93,43 +107,67 @@ class CaverPage extends React.Component {
                           <div className={classes.headerSong}>
                             <p>{song.name}</p></div>
                           <a className={[classes.linkTo, song.linkTo ? '' : classes.mediaHidden].join(' ')} href={song.linkTo} target="_blank" rel="noopener noreferrer"> Канал исполнителя </a>
-                          <div className={[
-                            classes.audioBlock,
-                            song.audio1 ? '' : classes.mediaHidden].join(' ')
+                          
+                          <div className=
+                          {
+                            classes.audioBlock
                           }>
-                            <p>{song.audio_name1}</p>
+                            {audioSorce(song.audio1, song.audio_name1)}
+                            {audioSorce(song.audio2, song.audio_name2)}
+                            {audioSorce(song.audio3, song.audio_name3)}
+                            {audioSorce(song.rezAudio2, song.rezAudio1)}
+                            
+                          </div>  
+                            <div className=
+                            {
+                            classes.videoBlock
+                            }>
+                            {videoSorce(song.video1, song.video_name1)}
+                            {videoSorce(song.video2, song.video_name2)}
+                            {videoSorce(song.video3, song.video_name3)}                 
+                          </div> 
+                            {/* <p>{song.audio_name1}</p>
                             <audio controls className={song.audio1 ? '' : classes.mediaHidden}
-                              src={song.audio1} type="audio/mpeg" />
-                            <p>{song.audio_name2}</p>
+                              src={song.audio1} type="audio/mpeg" /> */}
+                            
+                            {/* <p>{song.audio_name2}</p>
                             <audio controls className={song.audio2 ? '' : classes.mediaHidden}
-                              src={song.audio2} type="audio/mpeg" />
-                            <p>{song.audio_name3}</p>
+                              src={song.audio2} type="audio/mpeg" /> */}
+                            
+                            {/* <p>{song.audio_name3}</p>
                             <audio controls className={song.audio3 ? '' : classes.mediaHidden}
-                              src={song.audio3} type="audio/mpeg" />
-                          </div>
+                              src={song.audio3} type="audio/mpeg" /> */}
+                            
+                          
 
-                          <div className={[
+                          {/* <div className={[
                             classes.videoBlock,
                             song.video1 ? '' : classes.mediaHidden].join(' ')
                           }>
-                            <p>{song.video_name1}</p>
-                            <video src={song.video1} id={classes.videoFrame} controls={true} type="video/mp4" ></video>
-                          </div>
-                          <p>{song.video_name2}</p>
+                            <p>{song.video_name1}</p> */}
+                          {/* { song.video1.includes('youtu.be') ?
+                            <ReactPlayer className={song.video1 ? '': classes.mediaHidden} id={classes.videoFrame} url = {song.video1} controls={true} /> :
+                            <video src={song.video1} id={classes.videoFrame} controls={true} type="video/mp4" ></video>} */}
+                           
+                          
+                          {/* </div> */}
+                          {/* <p>{song.video_name2}</p>
                           <div className={[
                             classes.videoBlock,
                             song.video2 ? '' : classes.mediaHidden].join(' ')
-                          }>
-                            <video src={song.video2} id={classes.videoFrame} controls={true} type="video/mp4" ></video>
-
-                            <p>{song.video_name3}</p>
+                          }> */}
+                          {/* <video src={song.video2} id={classes.videoFrame} controls={true} type="video/mp4" ></video> */}
+                          
+                          {/* </div> */}
+                          {/* <p>{song.video_name3}</p>
                             <div className={[
                               classes.videoBlock,
                               song.video3 ? '' : classes.mediaHidden].join(' ')
-                            }>
-                              <video src={song.video3} id={classes.videoFrame} controls={true} type="video/mp4" ></video>
-                            </div>
-                          </div>
+                            }> */}
+                          {/* <video src={song.video3} id={classes.videoFrame} controls={true} type="video/mp4" ></video> */}
+                          
+
+                          {/* </div> */}
 
                           <div className={classes.tziTata}>
                             <img className={classes.tziImage} src={song.picture} width={80} alt="Цитаты" />
@@ -146,8 +184,8 @@ class CaverPage extends React.Component {
                 <div>
                   {playList}
                   <Link to="/">
-                <button className={classes.btnHome}>Home</button>
-              </Link>
+                    <button className={classes.btnHome}>Home</button>
+                  </Link>
                 </div>
               </div>
             </div>
