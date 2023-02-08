@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/Letov-2022/static/css/main.a99c302a.css",
-    "main.js": "/Letov-2022/static/js/main.c2366fc1.js",
+    "main.js": "/Letov-2022/static/js/main.d6829a01.js",
     "static/js/787.fc238508.chunk.js": "/Letov-2022/static/js/787.fc238508.chunk.js",
     "static/media/jakobctt_woff": "/Letov-2022/static/media/jakobctt_8b806cbf869f1c45daf1949a025cd519.69b87b6f724e3c025bee.woff",
     "index.html": "/Letov-2022/index.html",
     "main.a99c302a.css.map": "/Letov-2022/static/css/main.a99c302a.css.map",
-    "main.c2366fc1.js.map": "/Letov-2022/static/js/main.c2366fc1.js.map",
+    "main.d6829a01.js.map": "/Letov-2022/static/js/main.d6829a01.js.map",
     "787.fc238508.chunk.js.map": "/Letov-2022/static/js/787.fc238508.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a99c302a.css",
-    "static/js/main.c2366fc1.js"
+    "static/js/main.d6829a01.js"
   ]
 }
