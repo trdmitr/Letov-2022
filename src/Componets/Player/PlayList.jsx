@@ -7,6 +7,7 @@ import Loader from '../Loader/Loader';
 
 const Player = ({songs, songError}) => {
     const [trackIndex, setTrackIndex] = useState(0)
+    
     const audiosongs1 = songs.map((song) => {
         const container = {};
          container.name = song.name;

@@ -1,13 +1,16 @@
 import React from "react";
 import Papa from "papaparse";
-import ReactPlayer from "react-player";
+// import ReactPlayer from "react-player";
 import Modal from "../Modal/ModalR";
 import "../UI/Mobile.css"
 // import Loader from "../Loader/Loader";
 import classes from "./CaverPage.module.css"
 import { Link } from "react-router-dom";
 import Img from "../UI/Img";
-import AudioList from "../Player/PlayList"
+// import AudioList from "../Player/PlayList"
+import {audioSource} from "../Utils/singContent"
+import {videoSource} from "../Utils/singContent"
+import {playList} from "../Utils/singContent"
 
 class CaverPage extends React.Component {
   constructor(props) {
@@ -51,34 +54,32 @@ class CaverPage extends React.Component {
   }
 
   updateData = (result) => {
-
+    // console.log(result.data.length);
     const data = result.data
     this.setState({ songs: data });
 
   }
 
   render() {
-    const audioSorce = (x, y) => {
-      return (
-        <div>
-          <p>{y}</p>
-          <audio controls className={x ? '' : classes.mediaHidden}
-            src={x} type="audio/mpeg" />
-        </div>
-      )
-    }
-    // const videoSorce = x => x.includes('youtu.be') ? <ReactPlayer className={x ? '' : classes.mediaHidden} id={classes.videoFrame} url={x} controls={true} /> 
+    // const audioSorce = (x, y) => {
+    //   return (
+    //     <div>
+    //       <p>{y}</p>
+    //       <audio controls className={x ? '' : classes.mediaHidden}
+    //         src={x} type="audio/mpeg" />
+    //     </div>
+    //   )
+    // }
+    // // const videoSorce = x => x.includes('youtu.be') ? <ReactPlayer className={x ? '' : classes.mediaHidden} id={classes.videoFrame} url={x} controls={true} /> 
     // :  <video src={x} id={classes.videoFrame} controls={true} type="video/mp4" ></video>;
-    const videoSorce = (x, y) => 
-    <div>
-    <p>{y}</p>
-    {x.includes('youtu.be') ? <ReactPlayer className={x ? '' : classes.mediaHidden} id={classes.videoFrame} url={x} controls={true} /> 
-    :  <video className={[classes.videoBlock, x ? '' : classes.mediaHidden].join(' ')} src={x} controls={true} type="video/mp4" ></video>}
-    </div>
+    // const videoSorce = (x, y) => 
+    // <div>
+    // <p>{y}</p>
+    // {x.includes('youtu.be') ? <ReactPlayer className={x ? '' : classes.mediaHidden} id={classes.videoFrame} url={x} controls={true} /> 
+    // :  <video className={[classes.videoBlock, x ? '' : classes.mediaHidden].join(' ')} src={x} controls={true} type="video/mp4" ></video>}
+    // </div>
 
-    const playList = this.state.songs.length <= 1 ? null : (
-      <AudioList songs={this.state.songs}></AudioList>
-    );
+    
     return (
       <div className="device device-iphone-x">
         <div className="device-frame">
@@ -112,19 +113,19 @@ class CaverPage extends React.Component {
                           {
                             classes.audioBlock
                           }>
-                            {audioSorce(song.audio1, song.audio_name1)}
-                            {audioSorce(song.audio2, song.audio_name2)}
-                            {audioSorce(song.audio3, song.audio_name3)}
-                            {audioSorce(song.rezAudio2, song.rezAudio1)}
+                            {audioSource(song.audio1, song.audio_name1)}
+                            {audioSource(song.audio2, song.audio_name2)}
+                            {audioSource(song.audio3, song.audio_name3)}
+                            {audioSource(song.rezAudio2, song.rezAudio1)}
                             
                           </div>  
                             <div className=
                             {
                             classes.videoBlock
                             }>
-                            {videoSorce(song.video1, song.video_name1)}
-                            {videoSorce(song.video2, song.video_name2)}
-                            {videoSorce(song.video3, song.video_name3)}                 
+                            {videoSource(song.video1, song.video_name1)}
+                            {videoSource(song.video2, song.video_name2)}
+                            {videoSource(song.video3, song.video_name3)}                 
                           </div> 
                             {/* <p>{song.audio_name1}</p>
                             <audio controls className={song.audio1 ? '' : classes.mediaHidden}
@@ -182,7 +183,7 @@ class CaverPage extends React.Component {
                 )
                 }
                 <div>
-                  {playList}
+                  {playList(this.state.songs)}
                   <Link to="/">
                     <button className={classes.btnHome}>Home</button>
                   </Link>
